@@ -31,9 +31,12 @@ class process {
 
     /**
      * Return array of objects containing from and to paths
+     * @param bool $noabsolutepath dont add absolute paths to paths
      * @return array
      */
     public static function get_paths($noabsolutepath) {
+        global $CFG;
+
         $manager = \core_plugin_manager::instance();
         $allplugins = $manager->get_plugins();
 
@@ -57,7 +60,6 @@ class process {
                 }
             }
         }
-
         return $paths;
     }
 
