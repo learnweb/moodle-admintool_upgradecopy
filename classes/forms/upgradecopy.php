@@ -64,9 +64,9 @@ class upgradecopy extends \moodleform {
             'advcheckbox', 'noabsolutepath', get_string('noabsolutepath', 'tool_upgradecopy'), null, null, array(0, 1)
         );
 
-        $mform->addElement('text', 'copysinglefile', get_string('copysinglefile', 'tool_upgradecopy'), 'size="50"');
-        $mform->setType('copysinglefile', PARAM_RAW);
-        $mform->addHelpButton('copysinglefile', 'copysinglefile', 'tool_upgradecopy');
+        $mform->addElement('text', 'copysinglefileordirectory', get_string('copysinglefileordirectory', 'tool_upgradecopy'), 'size="50"');
+        $mform->setType('copysinglefileordirectory', PARAM_RAW);
+        $mform->addHelpButton('copysinglefileordirectory', 'copysinglefileordirectory', 'tool_upgradecopy');
 
         $this->add_action_buttons(false, get_string('buttonlabel', 'tool_upgradecopy'));
     }

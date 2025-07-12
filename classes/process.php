@@ -34,31 +34,50 @@ class process {
      * @param bool $noabsolutepath dont add absolute paths to paths
      * @return array
      */
-    public static function get_paths($noabsolutepath) {
+    public static function get_paths($noabsolutepath, $copysinglefileordirectory) {
         global $CFG;
 
         $manager = \core_plugin_manager::instance();
         $allplugins = $manager->get_plugins();
-
+        $allsubplugins = [];
         $paths = [];
         foreach ($allplugins as $type => $typeplugins) {
-            $standard = \core_plugin_manager::standard_plugins_list($type);
+            $standard = $manager::standard_plugins_list($type);
             foreach ($typeplugins as $plugin => $info) {
                 if (!$standard || !in_array($plugin, $standard)) {
-                    if ($info->rootdir) {
-                        $from = $info->rootdir;
-                        $to = $info->typerootdir;
-                        if ($noabsolutepath) {
-                            $from = str_replace($CFG->dirroot, "",$from);
-                            $to = str_replace($CFG->dirroot, "",$to);
+                    if ($subplugins = $manager->get_subplugins_of_plugin($type."_".$plugin)) {
+                        foreach ($subplugins as $subplugin => $notused) {
+                            $allsubplugins[] = $subplugin;
                         }
-                        $paths[] = (object)[
-                            'from' => $from,
-                            'to' => $to,
-                        ];
+                    }
+                    if (!in_array($type."_".$plugin, $allsubplugins)) {
+                        if ($info->rootdir) {
+                            $from = $info->rootdir;
+                            $to = $info->typerootdir;
+                            if ($noabsolutepath) {
+                                $from = str_replace($CFG->dirroot, "",$from);
+                                $to = str_replace($CFG->dirroot, "",$to);
+                            }
+                            $paths[] = (object)[
+                                'from' => $from,
+                                'to' => $to,
+                            ];
+                        }
                     }
                 }
             }
+        }
+        if ($copysinglefileordirectory) {
+            $from = "/".$copysinglefileordirectory;
+            $to = "/".$copysinglefileordirectory;
+            if (!$noabsolutepath) {
+                $from = $CFG->dirroot . $from;
+                $to = $CFG->dirroot . $to;
+            }
+            $paths[] = (object)[
+                'from' => $from,
+                'to' => $to,
+            ];
         }
         return $paths;
     }

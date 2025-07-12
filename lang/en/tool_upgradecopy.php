@@ -25,8 +25,8 @@
 $string['buttonlabel'] = 'Generate';
 $string['command'] = 'Command';
 $string['command_help'] = 'Copy command (and any params) with which to prefix paths (default, cp -R)';
-$string['copysinglefile'] = 'Copy this file too';
-$string['copysinglefile_help'] = 'For copying just one file. Example: \'config.php\'';
+$string['copysinglefileordirectory'] = 'Copy this file or directory too';
+$string['copysinglefileordirectory_help'] = 'For copying one more file or directory. Example: \'config.php\'';
 $string['noabsolutepath'] = 'Don\'t use absolute paths';
 $string['noabsolutepath_help'] = 'The absolute path of the moodle directory will not be written.';
 $string['pageheader'] = 'Generate commands to copy all optional plugins to new Moodle';

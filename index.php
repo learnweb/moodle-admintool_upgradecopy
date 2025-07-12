@@ -46,7 +46,7 @@ if (!$data = $form->get_data()) {
 $PAGE->requires->js_init_code("window.scrollTo(0, 5000000);");
 
 echo $OUTPUT->box_start();
-$paths = \tool_upgradecopy\process::get_paths($data->noabsolutepath);
+$paths = \tool_upgradecopy\process::get_paths($data->noabsolutepath, $data->copysinglefileordirectory);
 $fromprefix = $data->pathfrom;
 $toprefix = $data->pathto;
 $command = $data->command;
