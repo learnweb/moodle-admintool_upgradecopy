@@ -69,7 +69,7 @@ class process {
         }
         if ($copysinglefileordirectory) {
             $from = "/".$copysinglefileordirectory;
-            $to = "/".$copysinglefileordirectory;
+            $to = "/";
             if (!$noabsolutepath) {
                 $from = $CFG->dirroot . $from;
                 $to = $CFG->dirroot . $to;
