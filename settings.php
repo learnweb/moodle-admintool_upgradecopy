@@ -17,6 +17,7 @@
 /**
  * Link to upgradecopy script.
  *
+ * @package    tool_upgradecopy
  * @copyright  Howard Miller 2023
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

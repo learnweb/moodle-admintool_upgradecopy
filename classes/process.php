@@ -33,7 +33,7 @@ class process {
      * Return array of objects containing from and to paths
      * @return array
      */
-    public static function get_paths() {
+    public static function get_paths($noabsolutepath) {
         $manager = \core_plugin_manager::instance();
         $allplugins = $manager->get_plugins();
 
@@ -45,6 +45,10 @@ class process {
                     if ($info->rootdir) {
                         $from = $info->rootdir;
                         $to = $info->typerootdir;
+                        if ($noabsolutepath) {
+                            $from = str_replace($CFG->dirroot, "",$from);
+                            $to = str_replace($CFG->dirroot, "",$to);
+                        }
                         $paths[] = (object)[
                             'from' => $from,
                             'to' => $to,

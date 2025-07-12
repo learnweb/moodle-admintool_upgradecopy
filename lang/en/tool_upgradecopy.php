@@ -17,16 +17,22 @@
 /**
  * Strings for component 'tool_upgradecopy', language 'en',.
  *
+ * @package    tool_upgradecopy
  * @copyright  Howard Miller 2023
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['buttonlabel'] = 'Generate';
 $string['command'] = 'Command';
-$string['commandhelp'] = 'Copy command (and any params) with which to prefix paths (default, cp -R)';
+$string['command_help'] = 'Copy command (and any params) with which to prefix paths (default, cp -R)';
+$string['copysinglefile'] = 'Copy this file too';
+$string['copysinglefile_help'] = 'For copying just one file. Example: \'config.php\'';
+$string['noabsolutepath'] = 'Don\'t use absolute paths';
+$string['noabsolutepath_help'] = 'The absolute path of the moodle directory will not be written.';
 $string['pageheader'] = 'Generate commands to copy all optional plugins to new Moodle';
 $string['pathfrom'] = 'Path from';
-$string['pathfromhelp'] = 'Path prefix for from part of copy';
+$string['pathfrom_help'] = 'Path prefix for from part of copy';
 $string['pathto'] = 'Path to';
-$string['pathtohelp'] = 'Path prefix for to part of copy';
+$string['pathto_help'] = 'Path prefix for to part of copy';
 $string['pluginname'] = 'UpgradeCopy';
 $string['privacy:metadata'] = 'The upgradecopy plugin does not store any personal data.';

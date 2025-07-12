@@ -15,8 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Create copy commands for migraiting optional plugins
+ * Create copy commands for migrating optional plugins
  *
+ * @package    tool_upgradecopy
  * @copyright  Howard Miller 2003
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

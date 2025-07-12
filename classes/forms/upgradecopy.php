@@ -47,19 +47,27 @@ class upgradecopy extends \moodleform {
         $mform->addElement('text', 'command', get_string('command', 'tool_upgradecopy'), 'size=50');
         $mform->setType('command', PARAM_RAW);
         $mform->setDefault('command', 'cp -R');
-        $mform->addElement('static', 'commandst', '', get_string('commandhelp', 'tool_upgradecopy'));
         $mform->addRule('command', get_string('required'), 'required', null, 'client');
+        $mform->addHelpButton('command', 'command', 'tool_upgradecopy');
 
         $mform->addElement('text', 'pathfrom', get_string('pathfrom', 'tool_upgradecopy'), 'size="50"');
         $mform->setType('pathfrom', PARAM_RAW);
-        $mform->addElement('static', 'pathfromst', '', get_string('pathfromhelp', 'tool_upgradecopy'));
         $mform->addRule('pathfrom', get_string('required'), 'required', null, 'client');
+        $mform->addHelpButton('pathfrom', 'pathfrom', 'tool_upgradecopy');
 
         $mform->addElement('text', 'pathto', get_string('pathto', 'tool_upgradecopy'), 'size="50"');
         $mform->setType('pathto', PARAM_RAW);
-        $mform->addElement('static', 'pathtost', '', get_string('pathtohelp', 'tool_upgradecopy'));
         $mform->addRule('pathto', get_string('required'), 'required', null, 'client');
+        $mform->addHelpButton('pathto', 'pathto', 'tool_upgradecopy');
 
-        $this->add_action_buttons(false, get_string('doit', 'tool_replace'));
+        $mform->addElement(
+            'advcheckbox', 'noabsolutepath', get_string('noabsolutepath', 'tool_upgradecopy'), null, null, array(0, 1)
+        );
+
+        $mform->addElement('text', 'copysinglefile', get_string('copysinglefile', 'tool_upgradecopy'), 'size="50"');
+        $mform->setType('copysinglefile', PARAM_RAW);
+        $mform->addHelpButton('copysinglefile', 'copysinglefile', 'tool_upgradecopy');
+
+        $this->add_action_buttons(false, get_string('buttonlabel', 'tool_upgradecopy'));
     }
 }
